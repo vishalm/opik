@@ -5632,6 +5632,11 @@ components:
         last_updated_by:
           type: string
           readOnly: true
+        value_by_author:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ValueEntry"
+          readOnly: true
     JsonListString:
       type: object
       anyOf:
@@ -5640,6 +5645,25 @@ components:
         items:
           type: object
       - type: string
+    ValueEntry:
+      type: object
+      properties:
+        value:
+          type: number
+        reason:
+          type: string
+        category_name:
+          type: string
+        source:
+          type: string
+          enum:
+          - ui
+          - sdk
+          - online_scoring
+        last_updated_at:
+          type: string
+          format: date-time
+      readOnly: true
     DatasetItemBatch_Write:
       required:
       - items
@@ -5929,6 +5953,11 @@ components:
         last_updated_by:
           type: string
           readOnly: true
+        value_by_author:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ValueEntry_Compare"
+          readOnly: true
       readOnly: true
     JsonListString_Compare:
       type: object
@@ -5939,6 +5968,25 @@ components:
         items:
           type: object
       - type: string
+    ValueEntry_Compare:
+      type: object
+      properties:
+        value:
+          type: number
+        reason:
+          type: string
+        category_name:
+          type: string
+        source:
+          type: string
+          enum:
+          - ui
+          - sdk
+          - online_scoring
+        last_updated_at:
+          type: string
+          format: date-time
+      readOnly: true
     DatasetPage_Public:
       type: object
       properties:
@@ -6801,6 +6849,11 @@ components:
         last_updated_by:
           type: string
           readOnly: true
+        value_by_author:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ValueEntry_ExperimentItemBulkWriteView"
+          readOnly: true
     JsonListString_ExperimentItemBulkWriteView:
       type: object
       anyOf:
@@ -6908,6 +6961,25 @@ components:
           type: string
       description: "Please provide either none, only one of evaluate_task_result or\
         \ trace, but never both"
+    ValueEntry_ExperimentItemBulkWriteView:
+      type: object
+      properties:
+        value:
+          type: number
+        reason:
+          type: string
+        category_name:
+          type: string
+        source:
+          type: string
+          enum:
+          - ui
+          - sdk
+          - online_scoring
+        last_updated_at:
+          type: string
+          format: date-time
+      readOnly: true
     Comment_Public:
       required:
       - text
@@ -8960,6 +9032,11 @@ components:
         last_updated_by:
           type: string
           readOnly: true
+        value_by_author:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ValueEntry_Public"
+          readOnly: true
       readOnly: true
     JsonListString_Public:
       type: object
@@ -9063,6 +9140,25 @@ components:
             precision
           format: double
           readOnly: true
+    ValueEntry_Public:
+      type: object
+      properties:
+        value:
+          type: number
+        reason:
+          type: string
+        category_name:
+          type: string
+        source:
+          type: string
+          enum:
+          - ui
+          - sdk
+          - online_scoring
+        last_updated_at:
+          type: string
+          format: date-time
+      readOnly: true
     SpanPage_Public:
       type: object
       properties:
